@@ -8,12 +8,19 @@ describe("Example", () => {
     await reloadApp()
   })
 
-  it("should have welcome screen", async () => {
-    await expect(element(by.id("WelcomeScreen"))).toBeVisible()
-  })
+  it("should save the food", async () => {
+    await expect(element(by.text("Food"))).toBeVisible()
 
-  it("should go to next screen after tap", async () => {
-    await element(by.id("next-screen-button")).tap()
-    await expect(element(by.id("DemoScreen"))).toBeVisible()
+    await element(by.id("food")).typeText("Fries")
+
+    await expect(element(by.text("Fries"))).toExist()
+
+    await element(by.text("Very Healthy")).tap()
+
+    await element(by.text("Save")).tap()
+
+    await expect(element(by.text("Saved!"))).toBeVisible()
+
+    await expect(element(by.text("Fries"))).toNotExist()
   })
 })

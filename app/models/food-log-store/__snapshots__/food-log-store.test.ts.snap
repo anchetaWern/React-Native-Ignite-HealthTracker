@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can be created 1`] = `
+Object {
+  "food_logs": Array [
+    Object {
+      "date": 1664082280927,
+      "food_id": "somefoodid123",
+      "id": "someid123",
+      "rating": 5,
+    },
+  ],
+}
+`;

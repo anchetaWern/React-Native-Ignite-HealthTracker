@@ -7,9 +7,12 @@
 import React from "react"
 import { useColorScheme } from "react-native"
 import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { WelcomeScreen, DemoScreen, DemoListScreen } from "../screens"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+
+import { CreateFoodScreen, FoodLoggerScreen, ReportScreen } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
+
+import Icon from "react-native-vector-icons/FontAwesome5"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -24,28 +27,48 @@ import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
  *   https://reactnavigation.org/docs/typescript#type-checking-the-navigator
  */
 export type NavigatorParamList = {
-  welcome: undefined
-  demo: undefined
-  demoList: undefined
-  // 🔥 Your screens go here
+  createFood: undefined
+  foodLogger: undefined
+  report: undefined
 }
 
-// Documentation: https://reactnavigation.org/docs/stack-navigator/
-const Stack = createNativeStackNavigator<NavigatorParamList>()
+const Tab = createBottomTabNavigator<NavigatorParamList>()
 
 const AppStack = () => {
   return (
-    <Stack.Navigator
+    <Tab.Navigator
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="welcome"
+      initialRouteName="createFood"
     >
-      <Stack.Screen name="welcome" component={WelcomeScreen} />
-      <Stack.Screen name="demo" component={DemoScreen} />
-      <Stack.Screen name="demoList" component={DemoListScreen} />
-      {/** 🔥 Your screens go here */}
-    </Stack.Navigator>
+      <Tab.Screen
+        name="createFood"
+        component={CreateFoodScreen}
+        options={{
+          tabBarIcon: () => <Icon name="carrot" size={30} color="#333" />,
+          title: "Create Food",
+        }}
+      />
+
+      <Tab.Screen
+        name="foodLogger"
+        component={FoodLoggerScreen}
+        options={{
+          tabBarIcon: () => <Icon name="clipboard-list" size={30} color="#333" />,
+          title: "Add Log",
+        }}
+      />
+
+      <Tab.Screen
+        name="report"
+        component={ReportScreen}
+        options={{
+          tabBarIcon: () => <Icon name="chart-area" size={30} color="#333" />,
+          title: "Report",
+        }}
+      />
+    </Tab.Navigator>
   )
 }
 

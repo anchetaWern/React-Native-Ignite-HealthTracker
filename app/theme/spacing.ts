@@ -9,13 +9,7 @@
  * If you've got simpler app, you may only need 6 items.  Or maybe you want a spacing scale
  * to be named:
  *
- * export const spacing = {
- *   tiny: 4,
- *   small: 8,
- *   medium: 12,
- *   large: 24,
- *   huge: 64
- * }
+
  *
  * Whatever you choose, try to stick with these, and not freestyle it everywhere.
  *
@@ -38,4 +32,11 @@
  * 7 = huge    - ?
  * 8 = massive - an uncomfortable amount of whitespace
  */
-export const spacing = [0, 4, 8, 12, 16, 24, 32, 48, 64]
+
+export const spacing = {
+  tiny: 4,
+  small: 8,
+  medium: 12,
+  large: 24,
+  huge: 64,
+}

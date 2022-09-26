@@ -10,3 +10,8 @@ require("../app/components/wallpaper/wallpaper.story")
 require("../app/components/gradient-background/gradient-background.story")
 require("../app/components/icon/icon.story")
 require("../app/components/header/header.story")
+
+// add
+require("../app/components/radio/radio.story")
+require("../app/components/selectable-text/selectable-text.story")
+require("../app/components/spacer/spacer.story")

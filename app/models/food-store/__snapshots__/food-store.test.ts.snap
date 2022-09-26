@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can be created 1`] = `
+Object {
+  "foods": Array [
+    Object {
+      "id": "somerandomid123",
+      "name": "fried chicken",
+      "rating": 2,
+    },
+  ],
+}
+`;
